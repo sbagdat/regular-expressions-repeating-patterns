@@ -95,6 +95,11 @@ describe "regex_with_ten_to_twelve_zs" do
     twelve_zs = "z" * 12
     expect(regex_with_ten_to_twelve_zs).to match "a#{twelve_zs}a"
   end
+  
+  it "does not match 'more than twelve zs'" do
+    thirteen_zs = "z" * 13
+    expect(regex_with_ten_to_twelve_zs).not_to match "a#{thirteen_zs}a"
+  end
 
   it "does not match ten a's" do
     ten_as = "a" * 10
